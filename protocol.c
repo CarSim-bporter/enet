@@ -1096,9 +1096,13 @@ enet_protocol_handle_incoming_commands (ENetHost * host, ENetEvent * event)
        case ENET_PROTOCOL_COMMAND_CONNECT:
           if (peer != NULL)
             goto commandError;
+
+          if ( !host -> ignoreConnectRequests )
+          {
           peer = enet_protocol_handle_connect (host, header, command);
           if (peer == NULL)
             goto commandError;
+          }
           break;
 
        case ENET_PROTOCOL_COMMAND_VERIFY_CONNECT:

@@ -365,6 +365,7 @@ typedef struct _ENetHost
    enet_uint32          mtu;
    enet_uint32          randomSeed;
    int                  recalculateBandwidthLimits;
+   int                  ignoreConnectRequests;       /**< If true, new connection requests will be ignored. */
    ENetPeer *           peers;                       /**< array of peers allocated for this host */
    size_t               peerCount;                   /**< number of peers allocated for this host */
    size_t               channelLimit;                /**< maximum number of channels allowed for connected peers */
